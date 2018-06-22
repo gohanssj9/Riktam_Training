@@ -18,7 +18,7 @@ $(document).ready(function(){
 					tbodyEl.append("<td class = 'idi'>" + data[i].id + "</td>");
 					tbodyEl.append("<td>" + data[i].name + "</td>");
 					tbodyEl.append("<td>" + data[i].age + "</td>");
-					tbodyEl.append("<td>" + viewRecord + updateRecord + deleteRecord + "</td>")
+					tbodyEl.append("<td>" + viewRecord + updateRecord + deleteRecord + "</td>");
 					tbodyEl.append("</tr>");
 
 					console.log(tbodyEl);
@@ -44,6 +44,16 @@ $(document).ready(function(){
 		});
 	});
 
+	function objectifyForm(formArray){
+		var returnArray = {};
+		for (var i = 0; i < formArray.length; i++)
+    		returnArray[formArray[i]['name']] = formArray[i]['value'];
+
+    	console.log(returnArray);
+  		return returnArray;
+	}
+
+
 	$(document).on('click',"table .btn2", function(event){
 		event.preventDefault();
 		// console.log(this);
@@ -53,14 +63,29 @@ $(document).ready(function(){
 		//var idIndent = (this.nextElementSibling.defaultValue);
 		//console.log(idIndent);
 
-		// var input = $("#updateRecordForm");
-		// var inputSerialize = input.serialize();
+		var inputt = objectifyForm($(this)[0].form);
+		// console.log(jQuery.param(inputt));
 
-		var named = this.form[1].value;
-		var aged = this.form[2].value;
-		var idd = this.form[5].value;
-		var inputSerialize = "name=" + named + "&age=" + aged + "&id=" + idd + "&_method=put"; 
-		console.log(inputSerialize);
+		var inputSerialize = jQuery.param(inputt);
+		inputSerialize = inputSerialize.substring(2);
+		/*console.log(inputSerialize);
+		// var input = $("#updateRecordForm");
+		// console.log("Hello," + input);
+		// var inputSerialize = input.serialize();
+		// console.log(this.form);
+		// console.log($(this)[0].form);
+		// var fifer = $(this)[0].form;
+		// console.log("Hello," + fifer);
+		// var tenfer = fifer.serialize();
+		// console.log(tenfer);
+		// console.log($(this).serialize());
+		// console.log($(this)[0].form.serializeArray());
+		// console.log($("input#name").val());
+		// var named = this.form[1].value;
+		// var aged = this.form[2].value;
+		// var idd = this.form[5].value;
+		// var inputSerialize = "name=" + named + "&age=" + aged + "&id=" + idd + "&_method=put"; 
+		// console.log(inputSerialize);*/		//Complete Hack Testing, Let it be there.
 		$.ajax({
 			url: '/student',
 			method: 'POST',
@@ -76,9 +101,12 @@ $(document).ready(function(){
 	
 	$(document).on('click','table .btn3', function(event){
 		event.preventDefault();
-		var idIndent = (this.nextElementSibling.defaultValue); // contains the ID to be deleted. Worst Hack of the Decade :(
-
-		var inputSerialize = "id=" + idIndent + "&_method=delete";
+		// var idIndent = (this.nextElementSibling.defaultValue); // contains the ID to be deleted. Worst Hack of the Decade :(
+		// console.log("Hello-2," + $(this)[0].form);
+		// var inputSerialize = "id=" + idIndent + "&_method=delete"; // Complete Hack, but now set.
+		var inputt = objectifyForm($(this)[0].form);
+		var inputSerialize = jQuery.param(inputt);
+		inputSerialize = inputSerialize.substring(2);
 		$.ajax({
 			url: '/student',
 			method: 'POST',
