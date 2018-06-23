@@ -1,0 +1,34 @@
+h1 th h2{
+	text-align: center;
+}
+
+#getButton {
+	margin-bottom: 1%;
+}
+tr{
+	text-align: center;
+	background-color: #CCC;
+}
+.btn .btn-success .btn-lg {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*.btn .btn-warning{
+	float: left; 
+	width: 33%; 
+	margin-top: 3px; 
+	margin-bottom: 3px;
+}
+.btn .btn-primary{
+	float: left; 
+	width: 33%; 
+	margin-top: 3px; 
+	margin-bottom: 3px;
+}
+.btn .btn-danger{
+	float: left; 
+	width: 33%; 
+	margin-top: 3px; 
+	margin-bottom: 3px;
+}*/

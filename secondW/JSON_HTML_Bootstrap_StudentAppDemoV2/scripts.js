@@ -1,34 +1,48 @@
 $(document).ready(function(){
-	// GET
+	// Function to convert an HTMLFormElement to an Object, so that it can be converted into data that can be used by Ajax request
+	function objectifyForm(formArray){
+		var returnArray = {};
+		for (var i = 0; i < formArray.length; i++)
+    		returnArray[formArray[i]['name']] = formArray[i]['value'];
+
+    	console.log(returnArray);
+  		return returnArray;
+	}
+	
+	// Get All Records
 	$("#getButton").on("click", function(){
 		$.ajax({
 			url: '/student',
 			contentType: 'application/json',
 			success: function(response){
 				var data = JSON.parse(response);
-				var tbodyEl = $('tbody');
+				var tbodyEl = $('tbody#mainBody');
 				tbodyEl.html('');
 				for(i = 0; i < data.length; i++){
 					console.log(data[i]);
-					var viewRecord = "<button type='button' class='btn btn-warning btn-lg' data-toggle='modal' data-target='#myModal3" + data[i].id + "' style = 'width:33%;'>View Record</button><div class='modal fade' id='myModal3" + data[i].id + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal'>&times;</button><h4 class='modal-title'>View Record</h4></div><form method='get' action = '/student/" + data[i].id + "' name='viewRecord' id = 'viewRecordForm'><div class='modal-body'><p>Name : " + data[i].name + "</p><p>Age : " + data[i].age + "</p></div><div class='modal-footer'><button type='button' class='btn btn-default' data-dismiss='modal'>Close</button></div></form></div></div></div>";
-					var updateRecord = "<button type='button' class='btn btn-primary btn-lg' data-toggle='modal' data-target='#myModal" + data[i].id + "' style = 'width:33%;'>Update Record</button><div class='modal fade' id='myModal" + data[i].id + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal'>&times;</button><h4 class='modal-title'>Update Record</h4></div><form method='post' name='updateRecord' id = 'updateRecordForm'><fieldset><div class='modal-body'><div class='form-group'><label for='name'>Name</label><input type='text' id='name' name = 'name' placeholder='Name' class='form-control' required/></div><div class='form-group'><label for='age'>Age</label><input type='number' id='age' name = 'age' placeholder='Age' class='form-control' required/></div></div><div class='modal-footer'><button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='submit' class='btn btn-primary btn2'> Update Record </button></div></fieldset><input type = 'hidden' name = 'id' value = '" + data[i].id + "' /><input type='hidden' name='_method' value='put'></form></div></div></div>";	
-					var deleteRecord = "<button type='button' class='btn btn-danger btn-lg' data-toggle='modal' data-target='#myModal2" + data[i].id + "' style = 'width: 33%;'>Delete Record</button><div class='modal fade' id='myModal2" + data[i].id + "' role='dialog'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal'>&times;</button><h4 class='modal-title'>Delete Record</h4></div><form method='post' name='deleteRecord' id = 'deleteRecordForm'><p> Are you sure you want to delete the record? </p><button type='button' class='btn btn-default' data-dismiss='modal'>Cancel</button><button type='submit' class='btn btn-danger btn3'> Delete Record? </button><input type = 'hidden' name = 'id' value = '" + data[i].id + "' /><input type='hidden' name='_method' value='delete' /></form></div></div></div>";
+					var viewRecord = "<button type='button' id = '" + data[i].id + "' class='btn btn-warning mainViewButton' style = 'float: left; width: 33%; margin-top: 3px; margin-bottom: 3px;'>View Record</button>";
+					var updateRecord = "<button type='button' id = '" + data[i].id + "' class='btn btn-primary mainUpdateButton' style = 'width: 33%; margin-top: 3px; margin-bottom: 3px;'>Update Record</button>";	
+					var deleteRecord = "<button type='button' id = '" + data[i].id + "' class='btn btn-danger mainDeleteButton' data-toggle='modal' data-target='#deleteRecordModal' style = 'float: right; width: 33%; margin-top: 3px; margin-bottom: 3px;'>Delete Record</button>";
 
-					tbodyEl.append("<tr width = '80%' border = '0' style = 'text-align: center;'>");
+					tbodyEl.append("<tr scope = 'row' border = '0' style = 'text-align: center;'>");
 					tbodyEl.append("<td class = 'idi'>" + data[i].id + "</td>");
 					tbodyEl.append("<td>" + data[i].name + "</td>");
 					tbodyEl.append("<td>" + data[i].age + "</td>");
-					tbodyEl.append("<td>" + viewRecord + updateRecord + deleteRecord + "</td>");
+					tbodyEl.append("<td>" + "<div class = 'text-center' >" +  viewRecord + updateRecord + deleteRecord + "</div></td>");
 					tbodyEl.append("</tr>");
 
 					console.log(tbodyEl);
 					
 				}
+			},
+			error: function(xhr){
+				console.log("An Error Occurred!");
 			}
 		});
 	});
-
-	$("#btn1").on('click', function(event){
+	
+	// Add a record
+	$(document).on('click','#addRecordButton', function (event){
 		event.preventDefault();
 		var input = $('#addRecordForm');
 		$.ajax({
@@ -38,85 +52,117 @@ $(document).ready(function(){
 			success: function(response){
 				input[0].reset();
 				console.log(response);
-				$("#myModal").modal('hide');
+				$("#addRecordModal").modal('hide');
 				$("#getButton").click();
+			},
+			error: function(xhr){
+				console.log("An Error Occurred!");
 			}
 		});
 	});
 
-	function objectifyForm(formArray){
-		var returnArray = {};
-		for (var i = 0; i < formArray.length; i++)
-    		returnArray[formArray[i]['name']] = formArray[i]['value'];
-
-    	console.log(returnArray);
-  		return returnArray;
-	}
-
-
-	$(document).on('click',"table .btn2", function(event){
+	//View a Record
+	$(document).on('click', '.mainViewButton', function (event){
 		event.preventDefault();
-		// console.log(this);
-		// console.log(this.form[1].value); //Name tag position in form i.e 1. Therefore Zero
-		// console.log(this.form[2].value); //Age tag position in form i.e 2. Therefore One
-		// console.log(this.form[5].value); // Hidden Type for id in form i.e 5. Therefore Five
-		//var idIndent = (this.nextElementSibling.defaultValue);
-		//console.log(idIndent);
-
-		var inputt = objectifyForm($(this)[0].form);
-		// console.log(jQuery.param(inputt));
-
-		var inputSerialize = jQuery.param(inputt);
-		inputSerialize = inputSerialize.substring(2);
-		/*console.log(inputSerialize);
-		// var input = $("#updateRecordForm");
-		// console.log("Hello," + input);
-		// var inputSerialize = input.serialize();
-		// console.log(this.form);
-		// console.log($(this)[0].form);
-		// var fifer = $(this)[0].form;
-		// console.log("Hello," + fifer);
-		// var tenfer = fifer.serialize();
-		// console.log(tenfer);
-		// console.log($(this).serialize());
-		// console.log($(this)[0].form.serializeArray());
-		// console.log($("input#name").val());
-		// var named = this.form[1].value;
-		// var aged = this.form[2].value;
-		// var idd = this.form[5].value;
-		// var inputSerialize = "name=" + named + "&age=" + aged + "&id=" + idd + "&_method=put"; 
-		// console.log(inputSerialize);*/		//Complete Hack Testing, Let it be there.
+		console.log($(this));
+		var passableId = $(this)[0].id;
 		$.ajax({
-			url: '/student',
-			method: 'POST',
-			data: inputSerialize,
-			success: function(response){
-				console.log(response);
-				$("#myModal").modal('hide');
-				$(".modal-backdrop").remove();
-				$("#getButton").click();
+			url: '/student/' + passableId,
+			contentType: 'application/json',
+			success: function (response){
+				var data = JSON.parse(response);
+				console.log(data[0]);
+
+				$("#populateDataFromViewRecord").html("<p>Name: " + data[0].name + "</p><p>Age: " + data[0].age + "</p>");
+				$("#viewRecordModal").modal();
 			}
+		});
+	});
+
+	// $('#updateRecordModal').on('show.bs.modal', function (event){
+	// 	var getNameFromRow = event;//.data('name');
+	// 	//$("#name").val(getNameFromRow);
+
+	// 	var getAgeFromRow = event.relatedTarget;//.data('age');
+	// 	//$("#age").val(getAgeFromRow);
+	// 	console.log(getNameFromRow);
+	// 	console.log(getAgeFromRow);
+
+	// 	});
+
+	// Update a record
+	$(document).on('click','.mainUpdateButton', function (event){
+		event.preventDefault();
+		var passableId = $(this)[0].id;
+
+		$("#updateRecordModal").modal("show");
+		console.log("Modal Shown");
+		$(document).on('click','.updateRecordButton', function (event){
+			// console.log(this);
+			// console.log(this.form[1].value); //Name tag position in form i.e 1. Therefore Zero
+			// console.log(this.form[2].value); //Age tag position in form i.e 2. Therefore One
+			// console.log(this.form[5].value); // Hidden Type for id in form i.e 5. Therefore Five
+			//var idIndent = (this.nextElementSibling.defaultValue);
+			//console.log(idIndent);
+			var inputt = objectifyForm($(this)[0].form);
+			inputt.id = passableId;
+			
+			var inputSerialize = jQuery.param(inputt);
+			inputSerialize = inputSerialize.substring(2);
+			// console.log(this.form);
+			// console.log($(this)[0].form);
+			// console.log($(this).serialize());
+			// console.log($(this)[0].form.serializeArray());
+			// console.log($("input#name").val());
+			// var named = this.form[1].value;
+			// var aged = this.form[2].value;
+			// var idd = this.form[5].value;
+			// var inputSerialize = "name=" + named + "&age=" + aged + "&id=" + idd + "&_method=put"; 	//Complete Hack Testing, Let it be there.
+			$.ajax({
+				url: '/student',
+				method: 'POST',
+				data: inputSerialize,
+				success: function(response){
+					console.log(response);
+					$("#updateRecordModal").modal('hide');
+					$(".modal-backdrop").remove();
+					$("#getButton").click();
+				},
+				error: function(xhr){
+					console.log("An Error Occurred!");
+				}
+			});
 		});
 	});
 	
-	$(document).on('click','table .btn3', function(event){
+	// Delete a record
+	$(document).on('click','.mainDeleteButton', function (event){
 		event.preventDefault();
-		// var idIndent = (this.nextElementSibling.defaultValue); // contains the ID to be deleted. Worst Hack of the Decade :(
-		// console.log("Hello-2," + $(this)[0].form);
-		// var inputSerialize = "id=" + idIndent + "&_method=delete"; // Complete Hack, but now set.
-		var inputt = objectifyForm($(this)[0].form);
-		var inputSerialize = jQuery.param(inputt);
-		inputSerialize = inputSerialize.substring(2);
-		$.ajax({
-			url: '/student',
-			method: 'POST',
-			data: inputSerialize,
-			success: function(response){
-				console.log(response);
-				$("#myModal2").modal('hide');
-				$(".modal-backdrop").remove();
-				$("#getButton").click();
-			}
+		var passableId = $(this)[0].id;
+		$(document).on('click', '.deleteRecordButton', function (event){
+			// var idIndent = (this.nextElementSibling.defaultValue); // contains the ID to be deleted. Worst Hack of the Decade :(
+			// console.log("Hello-2," + $(this)[0].form);
+			// var inputSerialize = "id=" + idIndent + "&_method=delete"; // Complete Hack, but now set.
+			var inputt = objectifyForm($(this)[0].form);
+			inputt.id = passableId;
+			var inputSerialize = jQuery.param(inputt);
+			inputSerialize = inputSerialize.substring(2);
+			$.ajax({
+				url: '/student',
+				method: 'POST',
+				data: inputSerialize,
+				success: function(response){
+					console.log(response);
+					$("#deleteRecordModal").modal('hide');
+					$(".modal-backdrop").remove();
+					$("#getButton").click();
+				},
+				error: function(xhr){
+					console.log("An Error Occurred!");
+				}
+			});
 		});
 	});
 });
+
+//data-toggle='modal' data-target='#updateRecordModal'

@@ -1,0 +1,8 @@
+Errors handling - both front end and backend -- done
+Writing styles in separate files -- done
+Single modal
+Using ids instead of html tags -- done
+Naming conventions -- done
+Use Express Generator to maintain folders structure -- split into components -- from Next Project onwards
+
+Idea for Single Modal --> Load up the modal when the DOM loads up. Then pass the ID through data-target, and then fetch the details through it. As in viewRecord, fetch the details and fill the modal up. Similarly for deleteRecord. Use ID's to reference any element in a file, not the tags.
