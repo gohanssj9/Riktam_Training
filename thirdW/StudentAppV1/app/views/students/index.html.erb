@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> StudentAppDemo </title>
+		<h1 style = "text-align: center;"> Hack Student ! </h1>
+	</head>
+
+	<body>
+		<h2 style = "text-align: center;"> Records </h2>
+		<div class = "container">
+			<table width = "80%" border = "0" class = "table table-hover">
+				<thead class = "table table-hover">
+					<tr>
+						<th> ID </th>
+						<th> Name </th>
+						<th> Age </th>
+						<th> Actions </th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @student.each do |student| %>
+						<tr>
+							<td><%= student.id %></td>
+							<td><%= student.name %></td>
+							<td><%= student.age %></td>
+							<td><%= link_to 'View Record', student_path(student.id), class: "btn btn-warning" %></td>
+							<td><%= link_to 'Update Record',{controller: "students", action: "edit", id: student.id}, class: "btn btn-info"%></td>
+							<td><%= link_to 'Delete Record', {controller: "students", action: "destroy", id: student.id}, :method => :delete, :data => {:confirm => "Are you sure you want to delete this record?"}, class: "btn btn-danger"%></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<p style = "text-align:center;">
+		<%= link_to 'Add Record',{controller: "students", action: "new"}, class: "btn btn-success"%>
+		</p>
+	</body>
+</html>
