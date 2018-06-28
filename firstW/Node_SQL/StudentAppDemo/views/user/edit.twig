@@ -1,0 +1,25 @@
+{% include '../header.twig' %}
+
+<form action="/edit/{{id}}" method="post" name="form1">
+    <table width="25%" border="0">
+    	<tr> 
+            <td>ID</td>
+            <td><input type="text" name="id" value="{{id}}" /></td>
+        </tr>
+        <tr> 
+            <td>Name</td>
+            <td><input type="text" name="name" id="name" value="{{name}}" /></td>
+        </tr>
+        <tr> 
+            <td>Age</td>
+            <td><input type="text" name="age" value="{{age}}" /></td>
+        </tr>
+        <tr> 
+            <td></td>
+            <td><input type="submit" name="Submit" value="Edit" /></td>
+        </tr>
+    </table>
+    <input type="hidden" name="_method" value="PUT" />
+</form>
+
+{% include '../footer.twig' %}

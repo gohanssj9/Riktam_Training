@@ -1,0 +1,30 @@
+{% include '../header'.twig %}
+
+<table width = "80%" border = "0">
+	<tr style = "text-align: left; background-color: #CCC">
+		<th> ID </th>
+		<th> Name </th>
+		<th> Age </th>
+		<th> Action </th>
+	</tr>
+
+	{% if data %}
+	{% for user in data %}
+		<tr>
+			<td>Hello</td>
+			<td>Hi</td>
+			<td>Holla</td>
+			<td>
+				<div style = "float: left">
+					<a href = "{{"/edit/" ~ user.id}}" > Edit </a> &nbsp;
+					<form method = "post" action = "{{"/delete/" ~ user.id}}" style = "float: right">
+						<input type = "submit" name = "delete" value = "Delete" onClick = "return confirm('Are you sure you want to delete this?'"/>
+						<input type = "hidden" name = "_method" value = "DELETE" />
+					</form>
+				</div>
+			</td>
+		</tr>
+	{% endfor %}
+	{% endif %}
+</table>
+{% include '../footer.twig' %}
