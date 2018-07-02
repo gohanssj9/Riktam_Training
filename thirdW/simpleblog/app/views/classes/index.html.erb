@@ -1,0 +1,8 @@
+<h1> Classes </h1>
+<% @classes.each do |classe| %>
+	<div class = "well">
+		<h3><%= classe.title %></h3>
+		<p><%= classe.body %></p>
+		<%= link_to "View Class", class_path(classe), :class => 'btn btn-default' %>
+	</div>
+<% end %>

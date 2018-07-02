@@ -1,0 +1,42 @@
+<h2><%= @classe.title %></h2>
+<p><%= @classe.body %></p>
+<hr>
+  <%= link_to "Edit", edit_class_path(@classe), :class => 'btn btn-default' %> 
+  <%= link_to "Delete", class_path(@classe), method: :delete, data: {confirm: "Are you sure you want to delete this?"}, :class => 'btn btn-danger' %>
+
+<hr>
+  <h3> Students </h3>
+  	<table width = "80%" border = "0" class = "table table-hover">
+  	  <thead style = "text-align:center;">
+  	    <tr>
+  	      <td> ID </td>
+  	      <td> Name </td>
+  	      <td> Age </td>
+  	    </tr>
+  	</thead>
+
+  	<tbody style = "text-align: center;">
+  	  <% @classe.students.each do |student| %>
+  	      <tr>
+  	      	<td><%= student.id %></td>
+  	      	<td><%= student.name %></td>
+  	      	<td><%= student.age %></td>
+  	      </tr>
+  	  <% end %>
+  	</tbody>
+  <h3> Add Student </h3>
+  <%= form_for ([@classe, @classe.students.build]) do |f| %>
+  <p>
+  	<%= f.label :name %><br>
+  	<%= f.text_field(:name, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+  	<%= f.label :age %><br>
+  	<%= f.number_field(:age, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+  	<%= f.submit "Save Student" ,({:class => 'btn btn-primary'}) %>
+  </p>
+<% end %>

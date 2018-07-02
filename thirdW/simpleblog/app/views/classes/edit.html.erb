@@ -1,0 +1,21 @@
+<h1> Edit Class </h1>
+<%= form_for :classe, url: class_path(@classe), method: :patch do |f| %>
+	<% if @classe.errors.any?  %>
+	  <% @classe.errors.full_messages.each do |message| %>
+	  	  <div class="alert alert-danger"><%= message %></div>
+	  <% end %>
+	<% end %>
+  <p>
+  	<%= f.label :title %><br>
+  	<%= f.text_field(:title, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+  	<%= f.label :body %><br>
+  	<%= f.text_area(:body, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+  	<%= f.submit "Save Class" ,({:class => 'btn btn-primary'}) %>
+  </p>
+<% end %>
