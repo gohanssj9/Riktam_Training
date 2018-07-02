@@ -1,0 +1,16 @@
+<div class = "modal-dialog">
+	<div class = "modal-content">
+		<div class = "modal-header">
+			<h3> Show Student </h3>
+		</div>
+
+		<div class = "modal-body" style = "text-align: center;">
+			<p> Name: <%= @student.name %> </p>
+			<p> Age: <%= @student.age %> </p>
+		</div>
+
+		<div class = "modal-footer">
+			<%= link_to "Close", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,10 @@
+<% @students.each do |student| %>
+	<tr>
+		<td><%= student.id %></td>
+		<td><%= student.name %></td>
+		<td><%= student.age %></td>
+		<td><%= link_to 'View Record', student_path(student.id), remote: true, class: "btn btn-warning" %></td>
+		<td><%= link_to 'Update Record',edit_student_path(student.id), remote: true, class: "btn btn-info"%></td>
+		<td><%= link_to 'Delete Record', student_delete_path(student), remote: true, class: "btn btn-danger"%></td>
+	</tr>
+<% end %>

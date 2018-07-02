@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> StudentAppDemo </title>
+		<h1 style = "text-align: center;"> Hack Student ! </h1>
+	</head>
+
+	<body>
+		<h2 style = "text-align: center;"> Records </h2>
+		<div class = "container">
+			<table width = "80%" border = "0" class = "table table-hover">
+				<thead class = "table table-hover">
+					<tr>
+						<th> ID </th>
+						<th> Name </th>
+						<th> Age </th>
+						<th> Actions </th>
+					</tr>
+				</thead>
+				<tbody class = "student-index">
+					<%= render "index" %>
+				</tbody>
+			</table>
+		</div>
+		<div id = "student-modal" class = "modal fade"></div>
+
+		<p style = "text-align:center;">
+		<%= link_to 'Add Record',new_student_path, remote: true, class: "btn btn-success"%>
+		</p>
+		<div class = "new-student"></div>
+	</body>
+</html>
