@@ -1,0 +1,7 @@
+$("#student-modal").append("<%= j render partial: 'students/show', locals: {student: @student} %>")
+$("#student-modal").modal("show")
+
+// $('.viewButton').live 'ajax:success', (event, data) ->
+//   console.log(event + " " + data);
+//   $('#student-modal').html(data.html) if(data.success == true)
+//   $('#student-modal').modal("show")

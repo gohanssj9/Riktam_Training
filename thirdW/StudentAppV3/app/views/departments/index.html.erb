@@ -1,0 +1,16 @@
+<h1 style = "text-align:center;"> Departments </h1>
+<div class = "department-index">
+	<%= render 'index' %>
+</div>
+<div id = "department-modal" class = "modal fade"></div>
+<p style = "text-align:center;">
+	<%= link_to 'Add Department',new_department_path, remote: true, class: "btn btn-success"%>
+</p>
+<div class = "new-student"></div>
+<!--<script>
+// $('#department-modal').on('shown.bs.modal', function () {
+//     $(this).find('.modal-dialog').css({width:'auto',
+//                                height:'auto', 
+//                               'max-height':'100%'});
+// });
+</script>-->

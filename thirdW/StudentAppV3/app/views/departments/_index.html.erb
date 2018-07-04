@@ -1,0 +1,9 @@
+<% @departments.each do |department| %>
+	<div class = "well">
+		<h3><%= department.title %></h3>
+		<p><%= department.body %></p>
+		<%= link_to "View Department", department_path(department), remote: true, class: 'btn btn-primary' %>
+		<%= link_to "Edit Department", edit_department_path(department.id), remote: true, class: 'btn btn-warning' %>
+		<%= link_to "Delete Department", department_delete_path(department), remote: true, class: 'btn btn-danger' %>
+	</div>
+<% end %>

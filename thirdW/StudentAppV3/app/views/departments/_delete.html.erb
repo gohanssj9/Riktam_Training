@@ -1,0 +1,17 @@
+<div class = "modal-dialog">
+  <div class = "modal-content">
+    <div class = "modal-header">
+      <h3> Delete Department </h3>
+    </div>
+
+    <div class = "modal-body">
+      <ul class = "errors"></ul>
+      Confirm Deletion of <b><%= @department.title %></b> ?
+    </div>
+
+    <div class = "modal-footer">
+      <%= link_to "Delete Department", department_path(@department), method: :delete, remote: true, class: "btn btn-danger" %>
+      <%= link_to "Cancel", "#", class: "btn btn-default", data: {dismiss: "modal"} %>
+    </div>
+  </div>
+</div>
