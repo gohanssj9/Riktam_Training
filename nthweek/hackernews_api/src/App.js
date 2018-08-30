@@ -94,6 +94,7 @@ class App extends Component {
     const {searchTerm} = this.state;
     this.fetchSearchTopStories(searchTerm);
     event.preventDefault();
+    // for real time hackernews api search
   }
 
   fetchSearchTopStories(searchTerm){
