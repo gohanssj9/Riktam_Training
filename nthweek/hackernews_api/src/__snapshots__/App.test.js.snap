@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App has a valid snapshot 1`] = `
+<div
+  className="App"
+  style={
+    Object {
+      "textAlign": "left",
+    }
+  }
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      type="text"
+      value="redux"
+    />
+    <button
+      type="submit"
+    >
+       
+       Search 
+       
+    </button>
+  </form>
+  <div />
+  <button
+    className="btn-info btn-lg center-block"
+    onClick={[Function]}
+    style={
+      Object {
+        "width": "30%",
+      }
+    }
+    type="button"
+  >
+     More 
+  </button>
+</div>
+`;
+
+exports[`Button has a valid snapshot 1`] = `
+<button
+  className={undefined}
+  onClick={undefined}
+  style={undefined}
+  type="button"
+>
+  Give Me More
+</button>
+`;
+
+exports[`Search has a valid snapshot 1`] = `
+<form
+  onSubmit={undefined}
+>
+  <input
+    onChange={undefined}
+    type="text"
+    value={undefined}
+  />
+  <button
+    type="submit"
+  >
+     
+    Search
+     
+  </button>
+</form>
+`;
+
+exports[`Table has a valid snapshot 1`] = `
+<div>
+  <div
+    className="well"
+  >
+    <h1>
+      <a
+        href={undefined}
+      >
+        1
+      </a>
+    </h1>
+    <h2>
+       
+      1
+       
+    </h2>
+    <div>
+      <button
+        className="btn btn-danger"
+        onClick={[Function]}
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+        type="button"
+      >
+        Dismiss
+      </button>
+      <button
+        className="btn btn-success"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="button"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+  <div
+    className="well"
+  >
+    <h1>
+      <a
+        href={undefined}
+      >
+        2
+      </a>
+    </h1>
+    <h2>
+       
+      2
+       
+    </h2>
+    <div>
+      <button
+        className="btn btn-danger"
+        onClick={[Function]}
+        style={
+          Object {
+            "textAlign": "center",
+          }
+        }
+        type="button"
+      >
+        Dismiss
+      </button>
+      <button
+        className="btn btn-success"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="button"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+`;
