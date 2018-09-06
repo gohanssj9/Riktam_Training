@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import DeleteDepartment from './DeleteDepartment.js';
 import EditDepartment from './EditDepartment.js';
+import ViewDepartment from './ViewDepartment.js';
 import * as allStyles from '../constants/constants.js';
 
 export default class AllDepartments extends Component {
@@ -32,7 +33,7 @@ export default class AllDepartments extends Component {
         <div className = "well" key = {item.id}>
           <h1> {item.title} </h1>
           <h5> {item.body} </h5>
-          <button type = "button" style = {allStyles.defaultStyle} className = "btn btn-info btn-lg"> View Department </button>
+          <ViewDepartment department_id = {item.id} />
           <EditDepartment department_id = {item.id} existing_title = {item.title} existing_body = {item.body} />
           <DeleteDepartment department_id = {item.id} />
         </div>
