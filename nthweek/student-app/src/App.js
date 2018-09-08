@@ -29,6 +29,7 @@ const Button = ({style, className, onClick, children}) => {
 
 const StudentTable = ({studentData, deleteStudentPanelOpen, toggleDeleteStudent, deleteStudent, editStudentPanelOpen, toggleEditStudent, editStudent, handleChange, name, age, department_id}) => {
   studentData = studentData == null ? [] : studentData;
+    console.log("Inside StudentTable:" , studentData[0], studentData[1], studentData[2]);
   return (
     <div>
       <table className = "table table-hover">
@@ -149,9 +150,9 @@ const Table = ({list, onDismiss, toggleStateX, panelOpen, value,
                   <Panel.Body>
                     <form method="POST">
                       <label>Title</label>
-                      <input onChange={handleChange} className="form-control" value={title} placeholder='Enter Title' name='title'/>
+                      <input onChange={handleChange} className="form-control" value={title} placeholder={item.title} name='title'/>
                       <label>Body</label>
-                      <input onChange={handleChange} className="form-control" value={body} placeholder='Enter Body' name='body'/>
+                      <input onChange={handleChange} className="form-control" value={body} placeholder={item.body} name='body'/>
                     </form>
                     
                   </Panel.Body>
@@ -228,6 +229,7 @@ class App extends Component {
     this.deleteStudent = this.deleteStudent.bind(this);
     this.toggleEditStudent = this.toggleEditStudent.bind(this);
     this.editStudent = this.editStudent.bind(this);
+    this.onDismissStudent = this.onDismissStudent.bind(this);
   }
 
   handleChange(e){
@@ -284,6 +286,7 @@ class App extends Component {
       department_id: key
     };
 
+    var def_Data;
     console.log(data);
     fetch('http://localhost:8000/students', {
       method: "POST",
@@ -291,14 +294,15 @@ class App extends Component {
       body: JSON.stringify(data)
     }).then(function(response){
       return response.json();
-    }).then(function(data){
-      console.log(data);
-      //self.setState({msg: "Successfully Submitted"});
+    }).then(function(result){
+      console.log(result);
+      def_Data = JSON.parse(result);
+      const matchThreeStudent = [...self.state.studentData, ...def_Data];
+      self.setState({studentData: matchThreeStudent});
     }).catch(function(error){
       console.log(error);
     });
     self.setState({msg: "Success Add Student"});
-    self.fetchStudentResults(key);
     this.toggleAddStudent(key);
   }
 
@@ -306,8 +310,10 @@ class App extends Component {
   editDepartment(event, editPanelOpen, key){
     event.preventDefault();
 
+    var data = this.state.data;
+
     let self = this;
-    var data = {
+    var sendingData = {
       title: this.state.title,
       body: this.state.body
     };
@@ -316,22 +322,27 @@ class App extends Component {
     fetch(url, {
       method: "PUT",
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
+      body: JSON.stringify(sendingData)
     }).then(function(response){
       return response.json();
-    }).then(function(data){
-      console.log(data);
-//      self.setState({msg: "Updated"});
+    }).then(function(result){
+      console.log(result);
     }).catch(function(error){
       console.log(error);
     });
-    self.setState({msg: "Updated Department"});
-    self.fetchResults(key);
+    
+    var index = data.findIndex(x => x.id == key);
+
+    data[index].title = this.state.title;
+    data[index].body = this.state.body;
+    this.setState({data});
     this.toggleEditDepartment(key);
   }
 
   editStudent(event, editStudentPanelOpen, key, department_key){
     event.preventDefault();
+
+    var studentData = this.state.studentData;
 
     let self = this;
     var data = {
@@ -351,8 +362,11 @@ class App extends Component {
     }).catch(function(error){
       console.log(error);
     });
-    self.setState({msg: "Updated Student"});
-    self.fetchStudentResults(department_key);
+    var index = studentData.findIndex(x => x.id == key);
+
+    studentData[index].name = this.state.name;
+    studentData[index].age = this.state.age;
+    this.setState({studentData});    
     this.toggleEditStudent(key);
   }
 
@@ -373,12 +387,10 @@ class App extends Component {
     }).then(function(response){
       return response.json();
     }).then(function(data){
-//      self.setState({msg: "Successfully deleted Student"});
+      self.onDismissStudent(key);
     }).catch(function(error){
       console.log(error);
     });
-    self.setState({msg: "Deleted Student"});
-    self.fetchStudentResults(department_key);
     this.toggleDeleteStudent(key);
   }
 
@@ -394,13 +406,10 @@ class App extends Component {
       return response.json();
     }).then(function(data){
       console.log(data);
-//      self.setState({msg: "Successfully Deleted"});
+      self.onDismiss(key);
     }).catch(function(error){
       console.log(error);
     });
-
-    self.setState({msg: "Successfully Deleted"});
-    self.fetchResults();
   }
 
   toggleStateX(key){
@@ -418,6 +427,14 @@ class App extends Component {
     const isNotId = item => item.id !== id;
     const updatedList = data.filter(isNotId);
     this.setState({data: updatedList});
+  }
+
+  onDismissStudent(id){
+    const {studentData} = this.state;
+
+    const isNotId = item => item.id !== id;
+    const updatedList = studentData.filter(isNotId);
+    this.setState({studentData: updatedList});
   }
 
   showResults(data){
@@ -440,29 +457,32 @@ class App extends Component {
   }
 
   handleSubmit(e, addDepartmentPanel){
+    const {data} = this.state;
     e.preventDefault();
 
     let self = this;
-    var data = {
+    var sendingData = {
       title: this.state.title,
       body: this.state.body
     };
+
+    var def_Data;
 
     console.log(data);
     fetch('http://localhost:8000/departments', {
       method: "POST",
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
+      body: JSON.stringify(sendingData)
     }).then(function(response){
-      return response.json();
-    }).then(function(data){
-      console.log(data);
-//      self.setState({msg: "Successfully Submitted"});
+        return response.json();
+    }).then(function(result){
+        def_Data = JSON.parse(result);
+        const matchThree = [...self.state.data, ...def_Data];
+        self.setState({data: matchThree});
     }).catch(function(error){
       console.log(error);
     });
-    self.setState({msg: "Successfully Submitted"});
-    self.fetchResults();
+
     this.toggleAddDepartment(addDepartmentPanel);
   }
   componentDidMount(){
