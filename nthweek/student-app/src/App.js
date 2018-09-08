@@ -27,7 +27,7 @@ const Button = ({style, className, onClick, children}) => {
 }
 
 
-const StudentTable = ({studentData, deleteStudentPanelOpen, toggleDeleteStudent, deleteStudent, editStudentPanelOpen, toggleEditStudent, editStudent, handleChange, name, age}) => {
+const StudentTable = ({studentData, deleteStudentPanelOpen, toggleDeleteStudent, deleteStudent, editStudentPanelOpen, toggleEditStudent, editStudent, handleChange, name, age, department_id}) => {
   studentData = studentData == null ? [] : studentData;
   return (
     <div>
@@ -62,7 +62,7 @@ const StudentTable = ({studentData, deleteStudentPanelOpen, toggleDeleteStudent,
                         </form>    
                       </ModalBody>
                       <ModalFooter>
-                        <Button style = {{width: "20%"}} className = "btn btn-primary center-block" onClick = {(event) => editStudent(event, editStudentPanelOpen, item.id)}> Update </Button>
+                        <Button style = {{width: "20%"}} className = "btn btn-primary center-block" onClick = {(event) => editStudent(event, editStudentPanelOpen, item.id, department_id)}> Update </Button>
                       </ModalFooter>
                     </Modal>
 
@@ -77,7 +77,7 @@ const StudentTable = ({studentData, deleteStudentPanelOpen, toggleDeleteStudent,
                         Are you sure you want to kick out this student ?   
                       </ModalBody>
                       <ModalFooter>
-                        <Button style = {{width: "20%"}} className = "btn btn-danger" onClick = {(event) => deleteStudent(event, deleteStudentPanelOpen, item.id)}> Delete </Button>
+                        <Button style = {{width: "20%"}} className = "btn btn-danger" onClick = {(event) => deleteStudent(event, deleteStudentPanelOpen, item.id, department_id)}> Delete </Button>
                       </ModalFooter>
                     </Modal>
                 </div>
@@ -113,7 +113,7 @@ const Table = ({list, onDismiss, toggleStateX, panelOpen, value,
                   <Panel.Body>
                     <StudentTable studentData = {studentData} deleteStudentPanelOpen = {deleteStudentPanelOpen} toggleDeleteStudent = {toggleDeleteStudent} deleteStudent = {deleteStudent} 
                     editStudentPanelOpen = {editStudentPanelOpen} toggleEditStudent = {toggleEditStudent} editStudent = {editStudent}
-                    handleChange = {handleChange} name = {name} age = {age} />
+                    handleChange = {handleChange} name = {name} age = {age} department_id = {item.id} />
                   </Panel.Body>
                   <Panel.Footer>
                     <Button style = {defaultStyle} className = "btn btn-success btn-lg center-block" onClick = {() => toggleAddStudent(item.id)}> Add Student </Button>
@@ -293,11 +293,12 @@ class App extends Component {
       return response.json();
     }).then(function(data){
       console.log(data);
-      self.setState({msg: "Successfully Submitted"});
+      //self.setState({msg: "Successfully Submitted"});
     }).catch(function(error){
       console.log(error);
     });
-
+    self.setState({msg: "Success Add Student"});
+    self.fetchStudentResults(key);
     this.toggleAddStudent(key);
   }
 
@@ -320,15 +321,16 @@ class App extends Component {
       return response.json();
     }).then(function(data){
       console.log(data);
-      self.setState({msg: "Updated"});
+//      self.setState({msg: "Updated"});
     }).catch(function(error){
       console.log(error);
     });
-
+    self.setState({msg: "Updated Department"});
+    self.fetchResults(key);
     this.toggleEditDepartment(key);
   }
 
-  editStudent(event, editStudentPanelOpen, key){
+  editStudent(event, editStudentPanelOpen, key, department_key){
     event.preventDefault();
 
     let self = this;
@@ -345,11 +347,12 @@ class App extends Component {
     }).then(function(response){
       return response.json();
     }).then(function(data){
-      self.setState({msg: "Updated Student"});
+//      self.setState({msg: "Updated Student"});
     }).catch(function(error){
       console.log(error);
     });
-
+    self.setState({msg: "Updated Student"});
+    self.fetchStudentResults(department_key);
     this.toggleEditStudent(key);
   }
 
@@ -360,7 +363,7 @@ class App extends Component {
   }
 
 
-  deleteStudent(event, deleteStudentPanelOpen, key){
+  deleteStudent(event, deleteStudentPanelOpen, key, department_key){
     event.preventDefault();
 
     let self = this;
@@ -370,11 +373,12 @@ class App extends Component {
     }).then(function(response){
       return response.json();
     }).then(function(data){
-      self.setState({msg: "Successfully deleted Student"});
+//      self.setState({msg: "Successfully deleted Student"});
     }).catch(function(error){
       console.log(error);
     });
-
+    self.setState({msg: "Deleted Student"});
+    self.fetchStudentResults(department_key);
     this.toggleDeleteStudent(key);
   }
 
@@ -390,10 +394,13 @@ class App extends Component {
       return response.json();
     }).then(function(data){
       console.log(data);
-      self.setState({msg: "Successfully Deleted"});
+//      self.setState({msg: "Successfully Deleted"});
     }).catch(function(error){
       console.log(error);
     });
+
+    self.setState({msg: "Successfully Deleted"});
+    self.fetchResults();
   }
 
   toggleStateX(key){
@@ -450,11 +457,12 @@ class App extends Component {
       return response.json();
     }).then(function(data){
       console.log(data);
-      self.setState({msg: "Successfully Submitted"});
+//      self.setState({msg: "Successfully Submitted"});
     }).catch(function(error){
       console.log(error);
     });
-
+    self.setState({msg: "Successfully Submitted"});
+    self.fetchResults();
     this.toggleAddDepartment(addDepartmentPanel);
   }
   componentDidMount(){
