@@ -6,6 +6,8 @@ import {defaultStyle} from '../actions/types';
 import {fetchStudents} from '../actions/studentActions';
 
 import AddStudent from './AddStudent';
+import DeleteStudent from './DeleteStudent';
+import EditStudent from './EditStudent';
 
 class ViewDepartment extends Component {
   constructor(props){
@@ -19,9 +21,7 @@ class ViewDepartment extends Component {
     this.viewDepartmentM = this.viewDepartmentM.bind(this);
   }
 
-  // componentWillMount(){
-  //   this.props.fetchStudents();
-  // }
+
   componentWillReceiveProps(nextProps){
     console.log("Inside Student NextProps");
     console.log(nextProps);
@@ -58,8 +58,8 @@ class ViewDepartment extends Component {
         <td> {student.age} </td>
         <td>
           <div>
-            <button type = "button" className = "btn btn-warning"> Edit Student </button>
-            <button type = "button" className = "btn btn-danger">Delete Student </button>
+            <EditStudent student_id = {student.id} student_name = {student.name} student_age = {student.age} />
+            <DeleteStudent student_id = {student.id} />
           </div>
         </td>
       </tr>

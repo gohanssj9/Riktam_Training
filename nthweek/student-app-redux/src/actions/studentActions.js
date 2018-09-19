@@ -24,3 +24,32 @@ export const newStudent = (postData) => dispatch => {
     })
   );
 };
+
+export const editStudent = (postData, student_id) => dispatch => {
+  const url = 'http://localhost:8000/students/' + student_id;
+  fetch(url, {
+    method: 'PUT',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(postData)
+  })
+    .then(res => res.json())
+    .then(changedStudentValues => dispatch({
+      type: EDIT_STUDENT,
+      payload: JSON.parse(changedStudentValues),
+      index: JSON.parse(student_id)
+    })
+  );
+}
+
+export const deleteStudent = (student_id) => dispatch => {
+  const url = 'http://localhost:8000/students/' + student_id;
+  fetch(url, {
+    method: 'DELETE'
+  })
+    .then(res => res.json())
+    .then(returnedId => dispatch({
+      type: DELETE_STUDENT,
+      payload: JSON.parse(returnedId)
+    })
+  );
+};

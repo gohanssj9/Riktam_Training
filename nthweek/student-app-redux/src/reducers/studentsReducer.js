@@ -19,7 +19,31 @@ export default function (state = initialState, action){
         studentSingleItem: action.payload
       };
 
+    case EDIT_STUDENT:
+      // console.log("Inside EDIT_DEPARTMENT");
+      const updatedStudentItems = state.studentItems.map(function(item){
+        if(item.id === parseInt(action.index, 10)){
+          item.name = action.payload.name;
+          item.age = action.payload.age;
+          return item;
+        }
+        return item;
+      });
+      return {
+        ...state,
+        studentItems: updatedStudentItems
+      };
+
+    case DELETE_STUDENT:
+      const {studentItems} = state;
+      const isNotId = item => item.id !== parseInt(action.payload, 10);
+      const updatedList = studentItems.filter(isNotId);
+      return {
+        ...state, 
+        studentItems: updatedList
+      };
+
     default: 
-    return state;
+     return state;
   }
 }
