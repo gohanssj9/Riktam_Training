@@ -1,0 +1,146 @@
+/*.navbar-nav #smallHeader > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar #smallHeader {min-height:32px !important}
+.navbar #smallHeader {background-color: black;}
+.applyTextColor {color: rgba(255, 255, 255, 0.8);}
+.navbar #smallHeader a :hover {
+    color: #c7ea46 !important;
+}*/
+
+@font-face {
+  font-family: 'Gentona';
+  src: url('./gentona');
+}
+
+header {
+  font-family: 'Gentona';
+  font-weight: 400;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.primary-header .primary-links .link-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 15px;
+}
+
+
+.primary-header .primary-links .link-wrapper:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.primary-header .primary-links .link-wrapper a {
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.primary-header .primary-links .link-wrapper a:last-child {
+  padding-right: 0;
+}
+
+
+.primary-header {
+  background: #000000;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 7px 10px;
+  font-size: 13px;
+  overflow: hidden;
+  border: 0;
+}
+
+.max-width {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.link-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.link-wrapper a:hover {
+  color: #8ec44a !important;
+  text-decoration: none;
+}
+
+.sticky {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.secondary-header {
+  background: #FFFFFF;
+  padding: 11px 20px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+  text-align: right;
+  transform: translateY(0);
+  z-index: 100;
+  height: 65px;
+  width: 100%;
+}
+
+.secondary-header .secondary-links a {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  padding: 11px 22px;
+  vertical-align: middle;
+  cursor: pointer;
+  position: relative;
+}
+
+.secondary-header a {
+  text-decoration: none;
+}
+
+.secondary-header .secondary-links .other-links:hover{
+  color: #8ec44a !important;
+  text-decoration: none;
+}
+
+.secondary-header .secondary-links .login-link:hover {
+  background: #bdd400;
+  color: black;
+}
+
+header.ola-header .logo {
+  width: 120px;
+}
+
+.secondary-header .secondary-links .login-link {
+  position: relative;
+  font-weight: 400;
+  background: #CCE500;
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 2px;
+  margin-top: 2px;
+}

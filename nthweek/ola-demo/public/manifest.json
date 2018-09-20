@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Book Cabs Nearby at Best Price | Hire Taxi Nearby Online at Olacabs.com",
+  "name": "OlaCabs Demo App",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "ola_icon.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
