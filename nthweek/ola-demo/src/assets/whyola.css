@@ -1,0 +1,97 @@
+.max-width {
+	max-width: 1200px;
+	margin: auto;
+}
+
+.section-holder{
+	letter-spacing: 0.3px;
+}
+
+.why-ola {
+	padding: 20px 0 0 0;
+}
+
+.section-holder .why-ola-header {
+	display: block;
+	font-weight: 600;
+	font-size: 36px;
+	color: rgba(0, 0, 0, 0.92);
+	margin-bottom: 5px;
+	text-align: left;
+}
+
+.section-holder .why-ola-subheader {
+	display: block;;
+	font-size: 18px;
+	font-weight: 300;
+	color: rgba(0, 0, 0, 0.92);
+	line-height: 20px;
+	opacity: 0.5;
+	text-align: left;
+}
+
+.why-ola .list-wrapper {
+	width: 100%;
+	padding: 20px 0 0 0;
+}
+
+.why-ola .left-items-wrapper {
+	width: 50%;
+	float: left;
+	padding-right: 20px;
+}
+
+.why-ola .right-items-wrapper {
+	width: 50%;
+	float: left;
+	padding-left: 20px;
+}
+
+.why-ola .individual-item-list {
+	width: 100%;
+	padding: 16px;
+	border-radius: 4px;
+	margin-left: -16px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	display: inline-block;
+	background-color: #fafafa;
+}
+
+.why-ola .individual-item-list .image-holder {
+	width: 30%;
+	float: left;
+}
+
+.why-ola .individual-item-list .individual-image {
+	object-fit: cover;
+	width: 100%;
+	height: 130px;
+}
+
+.why-ola .individual-item-list .text-holder {
+	width: 70%;
+	float: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: left;
+}
+
+.why-ola .individual-item-list .text-heading {
+	font-size: 24px;
+	font-weight: 400;
+	margin-bottom: 5px;
+	color: #000000;
+}
+
+.why-ola .individual-item-list .text-heading:hover{
+	color: #8ec44a;
+}
+
+.why-ola .individual-item-list .text-body {
+	line-height: 24px;
+	font-weight: 300;
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.6);
+	text-align: left;
+}

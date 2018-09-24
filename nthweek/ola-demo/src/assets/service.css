@@ -1,0 +1,114 @@
+.service-container {
+	padding: 150px 20px 100px 20px;
+}
+
+.service-info {
+	letter-spacing: 0.3px;
+}
+
+.service-info .service-heading {
+	font-size: 36px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.92);
+	display: block;
+	margin-bottom: 5px;
+	text-align: left;
+}
+.service-info .service-subheading {
+	font-size: 18px;
+	font-weight: 300;
+	color: rgba(0, 0, 0, 0.92);
+	display: block;
+	line-height: 20px;
+	opacity: 0.5;
+	text-align: left;
+}
+
+.service-info .service-cards {
+	display: block;
+	padding-top: 60px;
+}
+
+.service-info .card-holder {
+	width: 33.33%;
+	padding-right: 38px;
+	display: inline-block;
+}
+
+.service-info .individual-card {
+	background: #FBFBFC;
+	border-radius: 5px;
+	height: 530px;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+	letter-spacing: 0.3px;
+	display: inline-block;
+	width: 100%;
+}
+
+.service-info .individual-card .img-holder {
+	width: 100%;
+	position: relative;
+}
+
+.service-info .individual-card .img-holder .overlay {
+	position: absolute;
+	height: 200px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.3);
+	opacity: 0.9;
+	z-index: 1;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.service-info .individual-card .img-holder .overlay .modified {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: fill;
+}
+
+.service-info .individual-card .info-holder {
+	text-align: left;
+	padding: 20px 20px 0 20px;
+	margin-top: 180px;
+}
+
+.service-info .individual-card .info-holder .heading {
+	text-transform: uppercase;
+	font-size: 20px;
+	font-weight: 400;
+	color: #4a4a4a;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.service-info .individual-card .img-holder .car-type {
+	background: #cce500;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	position: absolute;
+	z-index: 4;
+	right: 15px;
+	margin-top: 160px;
+	line-height: 80px;
+	display: flex;
+	justify-content: center;
+}
+
+.service-info .individual-card .info-holder .car-type-info {
+	font-size: 16px;
+	font-weight: 300;
+	color: rgba(0, 0, 0, 0.6);
+	display: block;
+	line-height: 24px;
+	min-height: 120px;
+}
+
+.service-info .individual-card .info-holder .offerings-list {
+	padding-top: 30px;
+	padding-bottom: 40px;
+	display: flex;
+}

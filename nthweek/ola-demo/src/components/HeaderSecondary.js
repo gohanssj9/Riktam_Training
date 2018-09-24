@@ -25,7 +25,3 @@ const HeaderSecondary = () => {
 }
 
 export default HeaderSecondary;
-
-// <a className = "show-xs menu-icon" href = "">
-//           <img src = "../assets/ola_icon.png">
-//         </a>
