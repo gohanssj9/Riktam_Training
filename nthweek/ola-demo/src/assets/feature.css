@@ -1,0 +1,33 @@
+.individual-feature {
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+
+.individual-feature .feature-img {
+	position: absolute;
+	width: 45px;
+	top: 17%;
+	left: 0;
+}
+
+.feature-content {
+	margin-left: 65px;
+	padding-right: 20px;
+}
+
+.feature-content .feature-heading {
+	font-size: 18px;
+	font-weight: 400;
+	color: #000000;
+	margin-bottom: 2px;
+	text-align: left;
+}
+
+.feature-content .feature-info {
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.6);
+	line-height: 24px;
+	font-weight: 300;
+	text-align: left;
+}

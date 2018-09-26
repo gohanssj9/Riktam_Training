@@ -1,0 +1,30 @@
+footer.ola-footer .row-item.lists ul {
+	width: 33.33%;
+	float: left;
+	padding: 0 20px 0 0;
+	list-style: none;
+}
+
+footer.ola-footer .row-item.lists ul li {
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+footer.ola-footer .row-item.lists ul .big {
+	font-size: 14px;
+	font-weight: 600;
+	text-align: left;
+}
+
+footer.ola-footer .row-item.lists ul li a {
+	font-weight: 300;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.7);
+	float: left;
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+
+footer.ola-footer .row-item.lists ul li a:hover {
+	color: #8EC44A;
+}

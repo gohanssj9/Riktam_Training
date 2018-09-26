@@ -1,0 +1,139 @@
+.awesome-fleet {
+	padding-top: 650px;
+	display: block;
+}
+
+.awesome-fleet .fleet-holder {
+	letter-spacing: 0.3px;
+	display: block;
+}
+
+.awesome-fleet .fleet-holder .title {
+	font-size: 36px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.92);
+	text-align: left;
+	display: block;
+}
+
+.awesome-fleet .fleet-holder .subtitle {
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.92);
+	text-align: left;
+	display: block;
+}
+
+.awesome-fleet .fleet-holder .scroll-fleet {
+	background-color: #FFFFFF;
+	overflow: auto;
+	overflow-x: hidden;
+	padding-bottom: 10px;
+	white-space: nowrap;
+}
+
+.awesome-fleet .fleet-holder .scroll-fleet div.individual-scroll-vehicle {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	margin-right: 18px;
+	padding: 20px 36px 20px 0;
+}
+
+.awesome-fleet .fleet-holder .scroll-fleet .individual-scroll-vehicle .img-holder {
+	width: 96px;
+	height: 96px;
+}
+
+.awesome-fleet .fleet-holder .scroll-fleet .individual-scroll-vehicle .img-holder .width-adjust {
+	width: 60px;
+	height: 60px;
+	margin-top: 15px;
+	letter-spacing: 0.3px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.awesome-fleet .fleet-holder .scroll-fleet .img-holder:hover {
+	background-color: #cddc39 !important;
+	border-radius: 50%;
+}
+
+/*.awesome-fleet .fleet-holder .scroll-fleet .img-holder:active {
+	background-color: #cddc39 !important;
+	border-radius: 50%;
+}*/
+
+.awesome-fleet .fleet-holder .scroll-fleet .individual-scroll-vehicle .vehicle-name {
+	color: rgba(0, 0, 0, 0.6);
+	padding-top: 10px;
+	font-size: 18px;
+	font-weight: 400;
+	text-align: center;
+}
+
+.scroll-fleet-real {
+	position: relative;
+	height: 500px;
+	padding: 50px 0;
+	width: 100%;
+	border-top: 1px solid #e9e9e9;
+	z-index: 2;
+	background-image: linear-gradient(to top, #fdfdfd 0%, #e9e9e9 100%);
+	top: -2px;
+}
+
+.scroll-fleet-real .scroll-fleet-holder {
+	position: relative;
+	height: 100%;
+}
+
+.scroll-fleet-real .scroll-fleet-holder .left-part {
+	width: 60%;
+	float: left;
+}
+
+.scroll-fleet-real .scroll-fleet-holder .left-part .scroll-left-part {
+	height: 400px;
+}
+
+.scroll-fleet-real .scroll-fleet-holder .right-part {
+	width: 40%;
+	float: right;
+	height: 400px;
+	position: relative;
+}
+
+.scroll-fleet-real .scroll-fleet-holder .right-part .right-holder {
+	letter-spacing: 0.3px;
+	position: absolute;
+	top: 0;
+	margin-top: 90px;
+	text-align: left;
+	padding-left: 40px;
+	padding-right: 20px;
+}
+.scroll-fleet-real .scroll-fleet-holder .right-part .right-holder .title {
+	font-size: 36px;
+	font-weight: 600;
+}
+
+.scroll-fleet-real .scroll-fleet-holder .right-part .right-holder .subtitle {
+	text-align: left;
+	font-size: 18px;
+	font-weight: 300;
+	position: relative;
+}
+
+.scroll-fleet-real .scroll-fleet-holder .right-part .right-holder .info {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	letter-spacing: 0.3px;
+	word-spacing: 5px;
+	line-height: 24px;
+	font-size: 16px;
+	font-weight: 300;
+	width: 80%;
+
+	color: rgba(0, 0, 0, 0.7);
+}

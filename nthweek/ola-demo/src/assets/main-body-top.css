@@ -20,6 +20,7 @@ section, div {
   background: #000000;
   padding-top: 90px;
   background-image: url('../assets/ola_background.jpg');
+  background-size: cover;
 }
 
 .carousel-item .banner {

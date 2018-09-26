@@ -1,0 +1,16 @@
+.help-features {
+	background: #FFFFFF;
+	padding: 10px 20px;
+	position: relative;
+	letter-spacing: 0.3px;
+	z-index: 1;
+	box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+	display: block;
+	height: 152px;
+}
+
+.help-features .help-features-wrapper {
+	display: block;
+	width: 100%;
+	height: 100%;
+}

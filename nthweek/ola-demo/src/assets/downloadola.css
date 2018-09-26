@@ -1,0 +1,71 @@
+.extra-padding {
+	padding-top: 30px;
+}
+.download-image-holder {
+	height: 400px;
+	position: relative;
+	background: #FCFCFC;
+	box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.download-image-holder .content {
+	padding: 30px 0 0 0;
+	height: 100%;
+	position: relative;
+	display: block;
+}
+
+
+.download-image-holder .content .right-holder {
+	width: 50%;
+	height: 100%;
+	float: right;
+	text-align: center;
+}
+
+.download-image-holder .booking-img {
+	height: 100%;
+	max-width: 100%;
+}
+
+.download-image-holder .content .left-holder {
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+
+.left-section {
+	top: 10%;
+	bottom: 10%;
+	left: 0%;
+	width: 50%;
+	position: absolute;
+	padding-left: 0px;
+	text-align: left;
+}
+
+.left-section .left-section-heading {
+	padding-top: 30px;
+	font-size: 36px;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.92);
+	margin-bottom: 5px;
+	display: block;
+}
+
+.left-section .left-section-info {
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 20px;
+	margin-top: 15px;
+	margin-bottom: 90px;
+}
+
+.download-link-image {
+	background-image: url('../assets/download_stores_ola.png');
+	height: 20%;
+	background-repeat: no-repeat;
+	display: block;
+	background-position: left;
+}
