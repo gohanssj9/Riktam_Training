@@ -2,7 +2,7 @@
 	position: relative;
 }
 
-.offers-wrapper {
+.offers-container .offers-wrapper {
 	padding: 0;
 	background: #FFFFFF;
 	position: absolute;

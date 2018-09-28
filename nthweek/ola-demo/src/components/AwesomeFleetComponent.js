@@ -8,48 +8,64 @@ const fleetData = [
 		title: 'Auto',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-auto.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-auto-active.svg',
+		class_id: 'active',
+		vehicle_image: '',
 		id: 0
 	},
 	{
 		title: 'Bike',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-bike.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-bike-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 1
 	},
 	{
 		title: 'Share',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-share.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-share-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 2
 	},
 	{
 		title: 'Micro',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-micro.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-micro-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 3
 	},
 	{
 		title: 'Mini',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-mini.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-mini-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 4
 	},
 	{
 		title: 'Prime Sedan',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-prime-sedan.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-prime-sedan-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 5
 	},
 	{
 		title: 'Prime Play',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-prime-play.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-prime-play-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 6
 	},
 	{
 		title: 'Prime SUV',
 		imgWithoutHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-prime-suv.svg',
 		imgWithHover: 'https://olacabs.com/webstatic/img/ola-fleet-svg/ola-prime-suv-active.svg',
+		class_id: '',
+		vehicle_image: '',
 		id: 7
 	}
 ];
@@ -111,7 +127,7 @@ class AwesomeFleetComponent extends Component {
 		super(props);
 
 		this.state = {
-			fetched_id: 0
+			fetched_id: 0,
 		};
 
 		this.onClickedFleet = this.onClickedFleet.bind(this);
@@ -119,6 +135,12 @@ class AwesomeFleetComponent extends Component {
 	}
 
 	onClickedFleet(id){
+		for(var i = 0; i < 8; i++){
+				fleetData[i].class_id = '';
+				fleetData[i].vehicle_image = fleetData[i].imgWithoutHover;
+		}
+		fleetData[id].class_id = 'active';
+		fleetData[id].vehicle_image = fleetData[id].imgWithHover;
 		this.setState({fetched_id : id});
 	}
 
@@ -133,9 +155,9 @@ class AwesomeFleetComponent extends Component {
 					<div className = "scroll-fleet">
 						{
 							fleetData.map(vehicle => 
-								<div className = "individual-scroll-vehicle" classID = "active" onClick = {() => this.onClickedFleet(vehicle.id)}>
-									<div className = "img-holder">
-										<img src = {vehicle.imgWithoutHover} className = "width-adjust" onMouseOver = {e => (e.target.src = vehicle.imgWithHover)}
+								<div className = "individual-scroll-vehicle"  onClick = {() => this.onClickedFleet(vehicle.id)}>
+									<div className = "img-holder" ID = {vehicle.class_id}>
+										<img src = {vehicle.vehicle_image} className = "width-adjust" onMouseOver = {e => (e.target.src = vehicle.imgWithHover)}
 											onMouseOut = {e => (e.target.src = vehicle.imgWithoutHover)} />
 									</div>
 									<label className = "vehicle-name" > {vehicle.title} </label>

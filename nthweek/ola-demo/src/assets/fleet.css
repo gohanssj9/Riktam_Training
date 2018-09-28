@@ -59,6 +59,11 @@
 	border-radius: 50%;
 }
 
+#active {
+	background-color: #cddc39 !important;
+	border-radius: 50%;
+} 
+
 /*.awesome-fleet .fleet-holder .scroll-fleet .img-holder:active {
 	background-color: #cddc39 !important;
 	border-radius: 50%;

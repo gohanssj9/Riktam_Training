@@ -1,0 +1,312 @@
+.whole-book-cab {
+	min-height: 100%;
+	background-color: #f5f5f5;
+	margin: 0;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.whole-book-cab .right-book-cab {
+	background-image: url('https://olawebcdn.com/images/v1/bg_city.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 550px;
+	right: 0;
+	background-color: #000;
+	/*height: 0;
+	z-index: 1;
+	padding-top: 60%;*/  
+	/*
+	How did we decide ? Padding top is ((img_height / img_width) * container-width) container-width in percentage
+	*/ 
+}
+
+.whole-book-cab .right-book-cab .inner-div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	top: 0;
+	left: 10%;
+	bottom: 0;
+	width: 300px;
+	height: 100%;
+	max-width: 80%;
+	position: absolute;
+	margin: auto;
+	letter-spacing: 0.1px;
+}
+
+.whole-book-cab .right-book-cab .inner-text .title {
+	z-index: 5;
+	position: relative;
+	color: #FFFFFF;
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 24px;
+	margin-bottom: 5px;
+}
+
+.whole-book-cab .right-book-cab .inner-text .subtitle {
+	z-index: 5;
+	position: relative;
+	color: #FFFFFF;
+	width: 70%;
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 24px;
+}
+
+.whole-book-cab .right-book-cab .inner-text .hashtag {
+	z-index: 5;
+	position: relative;
+	color: #cddc39;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 24px;
+}
+
+.whole-book-cab .left-book-cab {
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	left: 0;
+	right: 815px;
+	background-color: #f5f5f5;
+
+}
+
+.whole-book-cab .left-book-cab .header {
+	height: 50px;
+	width: 100%;
+}
+
+.whole-book-cab .left-book-cab .header .menu-icon {
+	width: 50px;
+	height: 50px;
+	float: left;
+	display: inline-block;
+}
+
+.whole-book-cab .left-book-cab .header .menu-icon .img-adjust {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	transform: translate(50%, 50%);
+}
+
+.whole-book-cab .left-book-cab .header .login {
+	width: 70px;
+	height: 50px;
+	float: right;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	vertical-align: middle;
+}
+
+.whole-book-cab .left-book-cab .header .ola-icon {
+	width: auto;
+	height: 50px;
+	display: inline-block;
+	position: absolute;
+}
+
+.whole-book-cab .left-book-cab .header .ola-icon .icon-adjust {
+	height: 50px;
+	padding: 12px;
+	transform: translateX(175%);
+}
+
+/*.whole-book-cab .left-book-cab .body-details {
+	height: 136px;
+}
+*/
+
+
+.whole-book-cab .left-book-cab .navbar-header {
+	width: 550px;
+	position: relative;
+	padding: 10px 5px 10px 5px;
+	display: block;
+	z-index: 1000;
+	padding-bottom: 10px;
+}
+
+.whole-book-cab .left-book-cab .navbar-header .daily {
+	display: inline-block;
+	width: 33.33%;
+	text-align: center;
+	padding: 9px 0;
+	padding: 0 36px 0 36px;
+	position: relative;
+}
+
+.daily .daily-rides {
+	background-color: #cddc39;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #000000;
+	border-radius: 12px;
+}
+
+.whole-book-cab .left-book-cab  .navbar-header .outstation {
+	display: inline-block;
+	width: 33.33%;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: center;
+	line-height: 24px;
+	color: #000000;
+	padding: 9px 0;
+	position: relative;
+}
+
+.whole-book-cab .left-book-cab .navbar-header .rentals {
+	display: inline-block;
+	width: 33.33%;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	text-align: center;
+	color: #000000;
+	padding: 9px 0;
+	position: relative;
+}
+
+.whole-book-cab .left-book-cab .details {
+	width: 530px;
+	padding-top: 50px;
+	position: relative;
+	display: block;
+	margin: 0 10px 20px 10px;
+}
+
+.whole-book-cab .left-book-cab .details .pickup {
+	display: block;
+	background-color: #e2e2e2;
+	border-radius: 4px;
+	width: 100%;
+	position: relative;
+	height: 40px;
+}
+
+.whole-book-cab .left-book-cab .details .pickup .left-part-head {
+	width: 15%;
+	height: 100%;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+.whole-book-cab .left-book-cab .left-part {
+	font-size: 14px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+	position: relative;
+	letter-spacing: -0.5px;
+}
+
+.whole-book-cab .left-book-cab .details .pickup .right-part-head {
+	width: 80%;
+	display: inline-block;
+	margin-left: -10px;
+}
+
+.whole-book-cab .left-book-cab .right-part {
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+	position: relative;
+	letter-spacing: -0.3px;
+}
+
+.whole-book-cab .left-book-cab .details .to-locality {
+	margin-top: 10px;
+	display: block;
+	height: 40px;
+	background-color: #e2e2e2;
+	border-radius: 4px;
+	width: 100%;
+	position: relative;
+}
+
+.whole-book-cab .left-book-cab .details .to-locality .left-part-head {
+	width: 15%;
+	height: 100%;
+	margin-left: 10px;
+	display: inline-block;
+	transform: translateY(25%);
+}
+
+.whole-book-cab .left-book-cab .to-locality .left-part {
+	font-size: 14px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+	position: relative;
+	letter-spacing: 0.3px;
+}
+
+.whole-book-cab .left-book-cab .details .to-locality .right-part-head {
+	width: 80%;
+	display: inline-block;
+	margin-left: -10px;
+	transform: translateY(60%);
+}
+
+.whole-book-cab .left-book-cab .to-locality .right-part {
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+	position: relative;
+	letter-spacing: -0.3px;
+}
+ /*-----------------------------------------------------*/
+
+.whole-book-cab .left-book-cab .details .when {
+	margin-top: 10px;
+	display: block;
+	height: 40px;
+	background-color: #e2e2e2;
+	border-radius: 4px;
+	width: 100%;
+	position: relative;
+}
+
+.whole-book-cab .left-book-cab .details .when .left-part-head {
+	width: 15%;
+	height: 100%;
+	margin-left: 10px;
+	display: inline-block;
+	transform: translateY(0%);
+}
+
+.whole-book-cab .left-book-cab .when .left-part {
+	font-size: 14px;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.4);
+	position: relative;
+}
+
+.whole-book-cab .left-book-cab .details .when .right-part-head {
+	width: 80%;
+	display: inline-block;
+	margin-left: -10px;
+	transform: translateY(0%);
+	letter-spacing: -0.3px;
+}
+
+.whole-book-cab .left-book-cab .when .right-part select.dropdown {
+	line-height: 40px;
+	width: 100%;
+	white-space: nowrap;
+	color: #000;
+}
+
+.accurate-pickup-image {
+	margin: 0 90px 0 90px;
+}

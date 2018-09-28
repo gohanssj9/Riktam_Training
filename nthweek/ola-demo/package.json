@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^16.5.2",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Header from './components/Header';
-import MainBody from './components/MainBody';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+import BookCabComponent from './components/BookCabComponent';
+import ExtraButMainComponent from './components/ExtraButMainComponent';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <MainBody />
-      </div>
+      <Router>
+      	<div>
+        	<Route exact path = '/' component = {ExtraButMainComponent} />
+        	<Route path = '/bookcabs' component = {BookCabComponent} />
+      	</div>
+      </Router>
     );
   }
 }

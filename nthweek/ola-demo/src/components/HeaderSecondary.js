@@ -16,7 +16,7 @@ const HeaderSecondary = () => {
             <a className="other-links" href="/olaSelect">Ola Select</a>
             <a className="other-links" href="/fleet">Ola Fleet</a>
             <a className="other-links" href="/features">Features</a>
-            <a href="https://book.olacabs.com?utm_source=book_now_top_right" className="login-link">Book Now</a>
+            <a href="/bookcabs" className="login-link">Book Now</a>
           </div>
         </div>
       </div>
