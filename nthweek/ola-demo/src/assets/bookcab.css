@@ -7,7 +7,6 @@
 }
 
 .whole-book-cab .right-book-cab {
-	background-image: url('https://olawebcdn.com/images/v1/bg_city.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: absolute;
@@ -73,7 +72,7 @@
 	bottom: 0;
 	position: absolute;
 	left: 0;
-	right: 815px;
+	right: 1274px;
 	background-color: #f5f5f5;
 
 }
@@ -146,13 +145,30 @@
 	position: relative;
 }
 
-.daily .daily-rides {
+.active {
 	background-color: #cddc39;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 24px;
 	color: #000000;
 	border-radius: 12px;
+	padding: 0 5px 0 5px;
+}
+
+.active:hover{
+	color: #000000;
+}
+
+.inactive {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 24px;
+	color: #000000;
+	padding: 0 5px 0 5px;
+}
+
+.inactive:hover {
+	color: #000000;
 }
 
 .whole-book-cab .left-book-cab  .navbar-header .outstation {
@@ -304,7 +320,21 @@
 	line-height: 40px;
 	width: 100%;
 	white-space: nowrap;
-	color: #000;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.whole-book-cab .left-book-cab .when .right-part select.dropdown-left {
+	line-height: 40px;
+	width: 50%;
+	white-space: nowrap;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.whole-book-cab .left-book-cab .when .right-part select.dropdown-right {
+	line-height: 40px;
+	width: 50%;
+	white-space: nowrap;
+	color: rgba(0, 0, 0, 0.6);
 }
 
 .accurate-pickup-image {
